@@ -211,9 +211,110 @@
   .certificate-category-section {
     padding-top: 55px;
     padding-bottom: 55px;
+    
   }
 
   .certificate-grid {
     grid-template-columns: 1fr;
   }
 }
+
+/* =====================================
+   COMPACT HEADER WITH HAMBURGER MENU
+===================================== */
+
+.topbar {
+  height: 76px !important;
+  padding: 0 7vw !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  border-bottom: 1px solid #edf0f3;
+}
+
+.brand {
+  flex: 0 0 auto !important;
+}
+
+/* Hamburger icon visible on desktop and mobile */
+
+.mobile-menu {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--navy);
+  cursor: pointer;
+  margin-left: auto;
+}
+
+/* Hide navigation until clicked */
+
+.nav {
+  display: none !important;
+  position: absolute;
+  top: 76px;
+  right: 7vw;
+  left: auto !important;
+  width: 300px;
+  max-width: 90vw;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+  padding: 15px;
+  background: #fff;
+  border: 1px solid var(--line);
+  box-shadow: 0 15px 35px #10243a18;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  gap: 0 !important;
+  white-space: normal !important;
+}
+
+.nav.open {
+  display: flex !important;
+}
+
+.nav a {
+  display: block;
+  padding: 10px 12px;
+  font-size: 12px !important;
+  color: var(--ink);
+  border-bottom: 1px solid #edf0f3;
+  flex: 0 0 auto;
+}
+
+.nav a:hover {
+  color: var(--gold);
+  background: var(--paper);
+}
+
+.nav .admin-link {
+  display: flex !important;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+/* Mobile adjustments */
+
+@media (max-width: 650px) {
+  .topbar {
+    height: 68px !important;
+    padding: 0 5vw !important;
+  }
+
+  .nav {
+    top: 68px;
+    right: 5vw;
+    width: min(300px, 90vw);
+  }
+}
+
+
