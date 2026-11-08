@@ -150,3 +150,70 @@
     font-size: 10px;
   }
 }
+
+/* NINE INDEPENDENT CERTIFICATE SECTIONS */
+
+.certificate-category-section {
+  padding-top: 75px;
+  padding-bottom: 75px;
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: 90px;
+}
+
+.certificate-category-section:nth-of-type(even) {
+  background: var(--paper);
+}
+
+.certificate-category-section .section-title {
+  margin-bottom: 32px;
+}
+
+.certificate-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+.certificate-card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.certificate-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow-wrap: anywhere;
+}
+
+.certificate-info h3 {
+  overflow-wrap: anywhere;
+}
+
+.certificate-info > p {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.certificate-info .text-link {
+  margin-top: auto;
+  padding-top: 12px;
+}
+
+@media (max-width: 900px) {
+  .certificate-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 650px) {
+  .certificate-category-section {
+    padding-top: 55px;
+    padding-bottom: 55px;
+  }
+
+  .certificate-grid {
+    grid-template-columns: 1fr;
+  }
+}
