@@ -367,15 +367,20 @@ export default function Portfolio() {
           </span>
         </a>
 
-        <button
-          className="mobile-menu"
-          onClick={() => setMenu(!menu)}
-          aria-label="Toggle navigation"
-        >
-          {menu ? <X /> : <Menu />}
-        </button>
-
-        <nav className={menu ? "nav open" : "nav"}>
+     <button
+  className="mobile-menu"
+  onClick={() => setMenu(!menu)}
+  aria-label="Toggle navigation"
+  aria-expanded={menu}
+  aria-controls="portfolio-navigation"
+>
+  {menu ? <X size={25} /> : <Menu size={25} />}
+</button>
+        
+        <nav
+  id="portfolio-navigation"
+  className={menu ? "nav open" : "nav"}
+>
           {nav.map(([label, id]) => (
             <a
               key={id}
@@ -386,9 +391,13 @@ export default function Portfolio() {
             </a>
           ))}
 
-          <a className="admin-link" href="#admin">
-            <ShieldCheck size={15} /> Admin
-          </a>
+         <a
+  className="admin-link"
+  href="#admin"
+  onClick={() => setMenu(false)}
+>
+  <ShieldCheck size={15} /> Admin
+</a>
         </nav>
       </header>
 
