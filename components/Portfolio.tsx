@@ -754,11 +754,46 @@ export default function Portfolio() {
           {sectionCertificates.map((c) => (
             <article className="certificate-card" key={c.id}>
               <div className="certificate-preview">
-                <FileText size={32} />
-                <span>
-                  {c.file_url ? "CERTIFICATE FILE" : "CREDENTIAL"}
-                </span>
-              </div>
+  {c.file_url ? (
+    <a
+      href={c.file_url}
+      target="_blank"
+      rel="noreferrer"
+      className="certificate-preview-link"
+      aria-label={`View full certificate: ${c.title}`}
+    >
+      {getCertificateType(c.file_url) === "image" ? (
+        <img
+          src={c.file_url}
+          alt={`Certificate: ${c.title}`}
+          loading="lazy"
+        />
+      ) : getCertificateType(c.file_url) === "pdf" ? (
+        <iframe
+          src={`${c.file_url}#page=1&toolbar=0&navpanes=0`}
+          title={`Certificate preview: ${c.title}`}
+          loading="lazy"
+        />
+      ) : (
+        <div className="certificate-file-placeholder">
+          <FileText size={35} />
+          <span>OPEN CERTIFICATE</span>
+        </div>
+      )}
+
+      <span className="certificate-preview-label">
+        {getCertificateType(c.file_url) === "pdf"
+          ? "PDF CERTIFICATE"
+          : "VIEW CERTIFICATE"}
+      </span>
+    </a>
+  ) : (
+    <div className="certificate-file-placeholder">
+      <FileText size={35} />
+      <span>CREDENTIAL</span>
+    </div>
+  )}
+</div>
 
               <div className="certificate-info">
                 <h3>{c.title}</h3>
