@@ -32,7 +32,6 @@ import {
   reviewerConferences,
   teachingSubjects,
   contributions,
-  fdpItems,
   professionalLinks
 } from "@/lib/content";
 
@@ -60,7 +59,71 @@ const certificateCategories = [
   "Conference Reviewer",
   "Other Recognition"
 ];
-
+const certificateSectionDetails = [
+  {
+    category: "Faculty Development Programs (FDP)",
+    id: "fdp",
+    title: "Faculty Development Programs",
+    eyebrow: "01 / PROFESSIONAL DEVELOPMENT",
+    description: "Faculty development programmes, refresher courses and academic training."
+  },
+  {
+    category: "Workshops and Training",
+    id: "workshops",
+    title: "Workshops and Training",
+    eyebrow: "02 / SKILL DEVELOPMENT",
+    description: "Technical workshops, hands-on training and professional learning."
+  },
+  {
+    category: "Conferences",
+    id: "conferences",
+    title: "Conferences",
+    eyebrow: "03 / ACADEMIC PARTICIPATION",
+    description: "Conference participation, presentations and scholarly events."
+  },
+  {
+    category: "Research and Publications",
+    id: "research-recognition",
+    title: "Research and Publications",
+    eyebrow: "04 / RESEARCH",
+    description: "Research achievements and publication-related recognition."
+  },
+  {
+    category: "Professional Certifications",
+    id: "certifications",
+    title: "Professional Certifications",
+    eyebrow: "05 / CREDENTIALS",
+    description: "Professional courses, technical certifications and credentials."
+  },
+  {
+    category: "Awards and Recognition",
+    id: "awards",
+    title: "Awards and Recognition",
+    eyebrow: "06 / ACHIEVEMENTS",
+    description: "Awards, honours and professional recognition."
+  },
+  {
+    category: "Journal Reviewer",
+    id: "journal-reviewer",
+    title: "Journal Reviewer",
+    eyebrow: "07 / PEER REVIEW",
+    description: "Journal peer-review certificates and editorial recognition."
+  },
+  {
+    category: "Conference Reviewer",
+    id: "conference-reviewer",
+    title: "Conference Reviewer",
+    eyebrow: "08 / PEER REVIEW",
+    description: "Conference reviewing and technical programme committee recognition."
+  },
+  {
+    category: "Other Recognition",
+    id: "other-recognition",
+    title: "Other Recognition",
+    eyebrow: "09 / PROFESSIONAL RECOGNITION",
+    description: "Additional academic and professional achievements."
+  }
+];
 function SectionTitle({
   eyebrow,
   title,
@@ -82,7 +145,7 @@ function SectionTitle({
 export default function Portfolio() {
   const [menu, setMenu] = useState(false);
 
-const [activeCategory, setActiveCategory] = useState("All");
+ 
 
 
   const [certs, setCerts] = useState<Certificate[]>(
@@ -278,7 +341,15 @@ const [activeCategory, setActiveCategory] = useState("All");
     ["Research", "research"],
     ["Publications", "publications"],
     ["Achievements", "achievements"],
-    ["Certificates", "certificates"],
+    ["FDP", "fdp"],
+["Workshops", "workshops"],
+["Conferences", "conferences"],
+["Research Recognition", "research-recognition"],
+["Certifications", "certifications"],
+["Awards", "awards"],
+["Journal Reviewer", "journal-reviewer"],
+["Conference Reviewer", "conference-reviewer"],
+["Other Recognition", "other-recognition"],
     ["Professional Links", "professional-links"],
     ["Contact", "contact"]
   ];
@@ -491,7 +562,7 @@ const [activeCategory, setActiveCategory] = useState("All");
 
       {/* RESEARCH */}
 
-      <section className="research-band">
+   <section id="research" className="research-band">
         <div className="research-intro">
           <span className="eyebrow gold-text">
             03 / RESEARCH FOCUS
@@ -644,130 +715,87 @@ const [activeCategory, setActiveCategory] = useState("All");
         </div>
       </section>
 
-      {/* FACULTY DEVELOPMENT */}
+     {/* SEPARATE PROFESSIONAL RECOGNITION SECTIONS */}
 
-      <section className="fdp-band">
-        <div>
-          <span className="eyebrow gold-text">
-            CONTINUOUS LEARNING
-          </span>
+{certificateSectionDetails.map((section) => {
+  const sectionCertificates = certs.filter(
+    (c) =>
+      (c.category || "Professional Certifications") ===
+      section.category
+  );
 
-          <h2>
-            Faculty development
-            <br />
-            <em>& professional growth.</em>
-          </h2>
-        </div>
-
-        <ul>
-          {fdpItems.map((x) => (
-            <li key={x}>{x}</li>
-          ))}
-        </ul>
-      </section>
-
-      {/* CERTIFICATES */}
-
-<section id="certificates" className="section">
-  <SectionTitle
-    eyebrow="06 / CREDENTIALS"
-    title="Certificates & professional recognition"
-    text="Explore faculty development programmes, workshops, conferences, certifications and academic recognition."
-  />
-
-  <div className="category-filter">
-    <button
-      className={activeCategory === "All" ? "active" : ""}
-      onClick={() => setActiveCategory("All")}
+  return (
+    <section
+      id={section.id}
+      className="section certificate-category-section"
+      key={section.id}
     >
-      All
-    </button>
+      <SectionTitle
+        eyebrow={section.eyebrow}
+        title={section.title}
+        text={section.description}
+      />
 
-    {certificateCategories.map((category) => (
-      <button
-        key={category}
-        className={activeCategory === category ? "active" : ""}
-        onClick={() => setActiveCategory(category)}
-      >
-        {category}
-      </button>
-    ))}
-  </div>
+      {sectionCertificates.length > 0 ? (
+        <div className="certificate-grid">
+          {sectionCertificates.map((c) => (
+            <article className="certificate-card" key={c.id}>
+              <div className="certificate-preview">
+                <FileText size={32} />
+                <span>
+                  {c.file_url ? "CERTIFICATE FILE" : "CREDENTIAL"}
+                </span>
+              </div>
 
-  <div className="certificate-grid">
-    {certs
-      .filter((c) =>
-        activeCategory === "All"
-          ? true
-          : (c.category || "Professional Certifications") === activeCategory
-      )
-      .map((c) => (
-        <article className="certificate-card" key={c.id}>
-          <div className="certificate-preview">
-            <FileText size={32} />
-            <span>
-              {c.file_url ? "CERTIFICATE FILE" : "CREDENTIAL"}
-            </span>
-          </div>
+              <div className="certificate-info">
+                <h3>{c.title}</h3>
 
-          <div className="certificate-info">
-            <span className="eyebrow">
-              {c.category || "Professional Certifications"}
-            </span>
+                <p>{c.issuer}</p>
 
-            <h3>{c.title}</h3>
+                <small>{c.event_date || c.year}</small>
 
-            <p>{c.issuer}</p>
+                {c.description && (
+                  <p className="certificate-description">
+                    {c.description}
+                  </p>
+                )}
 
-            <small>
-              {c.event_date || c.year}
-            </small>
+                {c.file_url && (
+                  <a
+                    href={c.file_url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-link"
+                  >
+                    View certificate <ExternalLink size={14} />
+                  </a>
+                )}
 
-            {c.description && (
-              <p className="certificate-description">
-                {c.description}
-              </p>
-            )}
+                {admin && (
+                  <div className="item-actions">
+                    <button onClick={() => setEditing(c)}>
+                      <Pencil size={14} /> Edit
+                    </button>
 
-            {c.file_url && (
-              <a
-                href={c.file_url}
-                target="_blank"
-                rel="noreferrer"
-                className="text-link"
-              >
-                View certificate <ExternalLink size={14} />
-              </a>
-            )}
-
-            {admin && (
-              <div className="item-actions">
-                <button onClick={() => setEditing(c)}>
-                  <Pencil size={14} /> Edit
-                </button>
-
-                {!c.id.startsWith("sample-") && (
-                  <button onClick={() => deleteCertificate(c.id)}>
-                    <Trash2 size={14} /> Delete
-                  </button>
+                    {!c.id.startsWith("sample-") && (
+                      <button onClick={() => deleteCertificate(c.id)}>
+                        <Trash2 size={14} /> Delete
+                      </button>
+                    )}
+                  </div>
                 )}
               </div>
-            )}
-          </div>
-        </article>
-      ))}
-  </div>
-
-  {certs.filter((c) =>
-    activeCategory === "All"
-      ? true
-      : (c.category || "Professional Certifications") === activeCategory
-  ).length === 0 && (
-    <p className="empty-certificates">
-      No certificates have been added under this category yet.
-    </p>
-  )}
-</section>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <p className="empty-certificates">
+          Records under this category will be updated soon.
+        </p>
+      )}
+    </section>
+  );
+})}
 
       {/* PROFESSIONAL LINKS */}
 
