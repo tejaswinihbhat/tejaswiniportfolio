@@ -446,7 +446,11 @@ export default function Portfolio() {
 
         <div className="hero-side">
           <div className="monogram">
-            TH<span>✦</span>
+            <img
+  src="/profile.jpg"
+  alt="Dr. Tejaswini H"
+  className="profile-photo"
+/>
           </div>
 
           <p>
