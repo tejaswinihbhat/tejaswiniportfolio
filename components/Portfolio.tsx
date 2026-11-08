@@ -48,6 +48,20 @@ type Certificate = {
   storage_path?: string;
   description?: string;
 };
+
+function getCertificateType(url?: string) {
+  if (!url) return "none";
+
+  const cleanUrl = url.split("?")[0].split("#")[0].toLowerCase();
+
+  if (cleanUrl.endsWith(".pdf")) return "pdf";
+
+  if (/\.(jpg|jpeg|png|webp)$/.test(cleanUrl)) {
+    return "image";
+  }
+
+  return "other";
+}
 const certificateCategories = [
   "Faculty Development Programs (FDP)",
   "Workshops and Training",
