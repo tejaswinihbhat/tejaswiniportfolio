@@ -43,10 +43,23 @@ type Certificate = {
   title: string;
   issuer: string;
   year: string;
+  category: string;
+  event_date?: string;
   file_url?: string;
   storage_path?: string;
   description?: string;
 };
+const certificateCategories = [
+  "Faculty Development Programs (FDP)",
+  "Workshops and Training",
+  "Conferences",
+  "Research and Publications",
+  "Professional Certifications",
+  "Awards and Recognition",
+  "Journal Reviewer",
+  "Conference Reviewer",
+  "Other Recognition"
+];
 
 function SectionTitle({
   eyebrow,
@@ -69,12 +82,16 @@ function SectionTitle({
 export default function Portfolio() {
   const [menu, setMenu] = useState(false);
 
+const [activeCategory, setActiveCategory] = useState("All");
+
+
   const [certs, setCerts] = useState<Certificate[]>(
-    certifications.map((c, i) => ({
-      ...c,
-      id: `sample-${i}`
-    }))
-  );
+  certifications.map((c, i) => ({
+    ...c,
+    id: `sample-${i}`,
+    category: "Professional Certifications"
+  }))
+);
 
   const [admin, setAdmin] = useState(false);
   const [email, setEmail] = useState("");
@@ -186,14 +203,16 @@ export default function Portfolio() {
       file_url = data.publicUrl;
     }
 
-    const payload = {
-      title: editing.title,
-      issuer: editing.issuer,
-      year: editing.year,
-      description: editing.description || "",
-      file_url,
-      storage_path
-    };
+ const payload = {
+  title: editing.title,
+  issuer: editing.issuer,
+  year: editing.year,
+  category: editing.category || "Professional Certifications",
+  event_date: editing.event_date || "",
+  description: editing.description || "",
+  file_url,
+  storage_path
+};
 
     const result =
       editing.id === "new" ||
@@ -846,12 +865,14 @@ export default function Portfolio() {
                 className="button button-dark"
                 onClick={() =>
                   setEditing({
-                    id: "new",
-                    title: "",
-                    issuer: "",
-                    year: "",
-                    description: ""
-                  })
+                  id: "new",
+                  title: "",
+                  issuer: "",
+                  year: "",
+                  category: "Faculty Development Programs (FDP)",
+                  event_date: "",
+                  description: ""
+                })
                 }
               >
                 <Plus size={16} /> Add certificate
@@ -881,57 +902,109 @@ export default function Portfolio() {
                     : "Edit certificate"}
                 </h4>
 
-                <label>
-                  Certificate title
-                  <input
-                    value={editing.title}
-                    onChange={(e) =>
-                      setEditing({
-                        ...editing,
-                        title: e.target.value
-                      })
-                    }
-                    required
-                  />
-                </label>
+               <label>
+  Certificate title
+  <input
+    value={editing.title}
+    onChange={(e) =>
+      setEditing({
+        ...editing,
+        title: e.target.value
+      })
+    }
+    required
+    placeholder="Enter certificate title"
+  />
+</label>
 
-                <label>
-                  Issuing organisation
-                  <input
-                    value={editing.issuer}
-                    onChange={(e) =>
-                      setEditing({
-                        ...editing,
-                        issuer: e.target.value
-                      })
-                    }
-                    required
-                  />
-                </label>
+<label>
+  Category
+  <select
+    value={editing.category || "Professional Certifications"}
+    onChange={(e) =>
+      setEditing({
+        ...editing,
+        category: e.target.value
+      })
+    }
+    required
+  >
+    {certificateCategories.map((category) => (
+      <option key={category} value={category}>
+        {category}
+      </option>
+    ))}
+  </select>
+</label>
 
-                <label>
-                  Year / date
-                  <input
-                    value={editing.year}
-                    onChange={(e) =>
-                      setEditing({
-                        ...editing,
-                        year: e.target.value
-                      })
-                    }
-                  />
-                </label>
+<label>
+  Issuing organisation
+  <input
+    value={editing.issuer}
+    onChange={(e) =>
+      setEditing({
+        ...editing,
+        issuer: e.target.value
+      })
+    }
+    required
+    placeholder="Enter institution or organisation"
+  />
+</label>
 
-                <label>
-                  Certificate file (PDF, JPG, PNG)
-                  <input
-                    type="file"
-                    accept=".pdf,.jpg,.jpeg,.png"
-                    onChange={(e) =>
-                      setUpload(e.target.files?.[0] || null)
-                    }
-                  />
-                </label>
+<label>
+  Year
+  <input
+    value={editing.year}
+    onChange={(e) =>
+      setEditing({
+        ...editing,
+        year: e.target.value
+      })
+    }
+    placeholder="e.g. 2026"
+  />
+</label>
+
+<label>
+  Event date
+  <input
+    type="date"
+    value={editing.event_date || ""}
+    onChange={(e) =>
+      setEditing({
+        ...editing,
+        event_date: e.target.value
+      })
+    }
+  />
+</label>
+
+<label>
+  Description
+  <textarea
+    value={editing.description || ""}
+    onChange={(e) =>
+      setEditing({
+        ...editing,
+        description: e.target.value
+      })
+    }
+    placeholder="Enter a brief description of the programme, achievement or recognition"
+    rows={4}
+  />
+</label>
+
+<label>
+  Certificate file (PDF, JPG, PNG)
+  <input
+    type="file"
+    accept=".pdf,.jpg,.jpeg,.png"
+    onChange={(e) =>
+      setUpload(e.target.files?.[0] || null)
+    }
+  />
+</label>
 
                 <div className="form-actions">
                   <button
