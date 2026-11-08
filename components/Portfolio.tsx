@@ -668,59 +668,106 @@ const [activeCategory, setActiveCategory] = useState("All");
 
       {/* CERTIFICATES */}
 
-      <section id="certificates" className="section">
-        <SectionTitle
-          eyebrow="06 / CREDENTIALS"
-          title="Certificates & learning"
-          text="A growing record of professional development. Uploaded certificate files can be previewed here."
-        />
+<section id="certificates" className="section">
+  <SectionTitle
+    eyebrow="06 / CREDENTIALS"
+    title="Certificates & professional recognition"
+    text="Explore faculty development programmes, workshops, conferences, certifications and academic recognition."
+  />
 
-        <div className="certificate-grid">
-          {certs.map((c) => (
-            <article className="certificate-card" key={c.id}>
-              <div className="certificate-preview">
-                <FileText size={32} />
-                <span>
-                  {c.file_url ? "CERTIFICATE FILE" : "CREDENTIAL"}
-                </span>
-              </div>
+  <div className="category-filter">
+    <button
+      className={activeCategory === "All" ? "active" : ""}
+      onClick={() => setActiveCategory("All")}
+    >
+      All
+    </button>
 
-              <div className="certificate-info">
-                <span className="eyebrow">{c.issuer}</span>
+    {certificateCategories.map((category) => (
+      <button
+        key={category}
+        className={activeCategory === category ? "active" : ""}
+        onClick={() => setActiveCategory(category)}
+      >
+        {category}
+      </button>
+    ))}
+  </div>
 
-                <h3>{c.title}</h3>
+  <div className="certificate-grid">
+    {certs
+      .filter((c) =>
+        activeCategory === "All"
+          ? true
+          : (c.category || "Professional Certifications") === activeCategory
+      )
+      .map((c) => (
+        <article className="certificate-card" key={c.id}>
+          <div className="certificate-preview">
+            <FileText size={32} />
+            <span>
+              {c.file_url ? "CERTIFICATE FILE" : "CREDENTIAL"}
+            </span>
+          </div>
 
-                <small>{c.year}</small>
+          <div className="certificate-info">
+            <span className="eyebrow">
+              {c.category || "Professional Certifications"}
+            </span>
 
-                {c.file_url && (
-                  <a
-                    href={c.file_url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-link"
-                  >
-                    View certificate <ExternalLink size={14} />
-                  </a>
+            <h3>{c.title}</h3>
+
+            <p>{c.issuer}</p>
+
+            <small>
+              {c.event_date || c.year}
+            </small>
+
+            {c.description && (
+              <p className="certificate-description">
+                {c.description}
+              </p>
+            )}
+
+            {c.file_url && (
+              <a
+                href={c.file_url}
+                target="_blank"
+                rel="noreferrer"
+                className="text-link"
+              >
+                View certificate <ExternalLink size={14} />
+              </a>
+            )}
+
+            {admin && (
+              <div className="item-actions">
+                <button onClick={() => setEditing(c)}>
+                  <Pencil size={14} /> Edit
+                </button>
+
+                {!c.id.startsWith("sample-") && (
+                  <button onClick={() => deleteCertificate(c.id)}>
+                    <Trash2 size={14} /> Delete
+                  </button>
                 )}
-
-                {admin && (
-                  <div className="item-actions">
-                    <button onClick={() => setEditing(c)}>
-                      <Pencil size={14} /> Edit
-                    </button>
-
-                    {!c.id.startsWith("sample-") && (
-                      <button onClick={() => deleteCertificate(c.id)}>
-                        <Trash2 size={14} /> Delete
-                      </button>
-                    )}
-                  </div>
-                )}
               </div>
-            </article>
-          ))}
-        </div>
-      </section>
+            )}
+          </div>
+        </article>
+      ))}
+  </div>
+
+  {certs.filter((c) =>
+    activeCategory === "All"
+      ? true
+      : (c.category || "Professional Certifications") === activeCategory
+  ).length === 0 && (
+    <p className="empty-certificates">
+      No certificates have been added under this category yet.
+    </p>
+  )}
+</section>
 
       {/* PROFESSIONAL LINKS */}
 
