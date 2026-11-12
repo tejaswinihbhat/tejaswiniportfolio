@@ -645,11 +645,7 @@ export default function Portfolio() {
           ))}
         </div>
 
-        <p className="source-note">
-          Publication details transcribed from the supplied
-          profile. Please verify metadata and indexing before
-          formal use.
-        </p>
+       
       </section>
 
       {/* ACHIEVEMENTS */}
@@ -714,24 +710,27 @@ export default function Portfolio() {
               <BookOpen />
             </div>
 
-            <h3>Teaching & academic service</h3>
+            {/* TEACHING & ACADEMIC SERVICE */}
 
-            <p>
-              Subjects handled and institutional contributions.
-            </p>
+<article className="achievement-card">
+  <div className="card-icon">
+    <BookOpen />
+  </div>
 
-            <div className="tag-cloud">
-              {teachingSubjects.slice(0, 8).map((x) => (
-                <span key={x}>{x}</span>
-              ))}
-            </div>
+  <h3>Academic & Institutional Service</h3>
 
-            <ul className="compact-list">
-              {contributions.slice(0, 4).map((x) => (
-                <li key={x}>{x}</li>
-              ))}
-            </ul>
-          </article>
+  <p>
+    Contributing to academic administration, student
+    development, institutional initiatives, and
+    academic evaluation.
+  </p>
+
+  <ul className="compact-list">
+    {contributions.slice(0, 4).map((x) => (
+      <li key={x}>{x}</li>
+    ))}
+  </ul>
+</article>
         </div>
       </section>
 
