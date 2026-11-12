@@ -132,11 +132,11 @@ const certificateSectionDetails = [
 
 // Point-wise academic and institutional contributions shown under Other Recognition.
 const otherRecognitions = [
-  "Question paper setter and external evaluator for Nitte University semester examinations.",
-  "Department coordinator for the Placement Committee, Cultural Committee and Women Empowerment Club at SMVITM.",
-  "Coordinator for institutional fests and NAAC, NBA and Unnat Bharat Abhiyan applications.",
-  "Moderator at MITE, Moodbidri."
-];
+  "Served as a Question Paper Setter and External Examiner for semester examinations at Nitte University.",
+  "Held departmental coordination responsibilities for the Placement Committee, Cultural Committee, and Women Empowerment Club at SMVITM.",
+  "Coordinated institutional-level technical and cultural events, along with documentation and application processes for NAAC, NBA, and Unnat Bharat Abhiyan (UBA) initiatives.",
+  "Served as an Examination Moderator for semester examinations at MITE, Moodbidri."
+],;
 
 function SectionTitle({
   eyebrow,
