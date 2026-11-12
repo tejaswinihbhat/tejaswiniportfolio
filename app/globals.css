@@ -1,3 +1,4 @@
+```
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap');
 @tailwind base;
 @tailwind components;
@@ -414,3 +415,244 @@
 }
 
 
+```
+
+
+/* =====================================
+   TEACHING EXPERIENCE
+===================================== */
+
+.teaching-section {
+  background: #fff;
+}
+
+.teaching-subject-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  align-items: stretch;
+}
+
+.teaching-subject-card {
+  position: relative;
+  min-height: 145px;
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 18px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-top: 2px solid var(--gold);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+.teaching-subject-card:hover {
+  transform: translateY(-3px);
+  border-color: #d7c39f;
+  box-shadow: 0 12px 28px rgba(16, 36, 58, .08);
+}
+
+.teaching-subject-number {
+  color: var(--gold);
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  line-height: 1;
+}
+
+.teaching-subject-card h3 {
+  margin: 0;
+  color: var(--ink);
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* =====================================
+   JOURNAL REVIEWER SUMMARY
+   Six journal summary cards
+===================================== */
+
+.journal-review-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 28px 0 38px;
+}
+
+.journal-review-item {
+  min-width: 0;
+  padding: 21px 22px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+.journal-review-item:hover {
+  transform: translateY(-3px);
+  border-color: #d8c49f;
+  box-shadow: 0 12px 28px rgba(16, 36, 58, .08);
+}
+
+.journal-review-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.journal-review-name {
+  min-width: 0;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.journal-review-quartile {
+  flex: 0 0 auto;
+  padding: 3px 9px;
+  color: #8e713e;
+  background: #f4f0e8;
+  border: 1px solid #e9dfcc;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  line-height: 1.5;
+}
+
+.journal-review-count {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  margin-top: 17px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.journal-review-count strong {
+  color: var(--navy);
+  font-family: 'Playfair Display', serif;
+  font-size: 29px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.journal-review-count span {
+  color: #89939d;
+  font-size: 10px;
+}
+
+/* =====================================
+   OTHER RECOGNITION
+   Numbered point-wise contributions
+===================================== */
+
+.other-recognition-list {
+  display: flex;
+  flex-direction: column;
+  margin: 24px 0 38px;
+  border-top: 1px solid var(--line);
+}
+
+.other-recognition-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 18px 4px;
+  border-bottom: 1px solid var(--line);
+  transition: padding-left .2s ease, background .2s ease;
+}
+
+.other-recognition-item:hover {
+  padding-left: 10px;
+  background: #fafbfc;
+}
+
+.recognition-number {
+  flex: 0 0 30px;
+  padding-top: 1px;
+  color: var(--gold);
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.other-recognition-item p {
+  margin: 0;
+  color: #526171;
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+/* Keep section headings visible below the sticky header */
+#teaching,
+#journal-reviewer,
+#conference-reviewer,
+#other-recognition {
+  scroll-margin-top: 95px;
+}
+
+/* =====================================
+   RESPONSIVE LAYOUTS FOR NEW SECTIONS
+===================================== */
+
+@media (max-width: 1100px) {
+  .teaching-subject-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .journal-review-summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .teaching-subject-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 650px) {
+  .journal-review-summary {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin: 22px 0 30px;
+  }
+
+  .journal-review-item {
+    padding: 18px;
+  }
+
+  .teaching-subject-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .teaching-subject-card {
+    min-height: 112px;
+    padding: 18px;
+  }
+
+  .teaching-subject-card h3 {
+    font-size: 17px;
+  }
+
+  .other-recognition-item {
+    gap: 12px;
+    padding: 15px 0;
+  }
+
+  .recognition-number {
+    flex-basis: 25px;
+    font-size: 14px;
+  }
+
+  .other-recognition-item p {
+    font-size: 12px;
+  }
+}
