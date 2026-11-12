@@ -655,52 +655,7 @@ export default function Portfolio() {
        
       </section>
 
-      {/* ACHIEVEMENTS / RECOGNITION & SERVICE */}
-
-      <section
-        id="achievements"
-        className="section achievements-section"
-      >
-        <SectionTitle
-          eyebrow="05 / RECOGNITION & SERVICE"
-          title="Academic contributions"
-          text="Peer-review, teaching and institutional contributions are presented in their respective sections."
-        />
-
-        <div className="achievement-grid">
-          <article className="achievement-card">
-            <div className="card-icon">
-              <Award />
-            </div>
-            <h3>Peer-review contributions</h3>
-            <p>
-              Journal and conference peer-review activities, including
-              editorial and technical programme committee contributions.
-            </p>
-            <a className="text-link" href="#journal-reviewer">
-              View journal reviewing <ArrowUpRight size={14} />
-            </a>
-            <a className="text-link" href="#conference-reviewer">
-              View conference reviewing <ArrowUpRight size={14} />
-            </a>
-          </article>
-
-          <article className="achievement-card">
-            <div className="card-icon">
-              <BookOpen />
-            </div>
-            <h3>Academic & institutional service</h3>
-            <p>
-              Academic evaluation, departmental coordination and
-              institutional responsibilities are detailed under Other
-              Recognition.
-            </p>
-            <a className="text-link" href="#other-recognition">
-              View other recognition <ArrowUpRight size={14} />
-            </a>
-          </article>
-        </div>
-      </section>
+     
 
       {/* SEPARATE TEACHING EXPERIENCE SECTION */}
 
