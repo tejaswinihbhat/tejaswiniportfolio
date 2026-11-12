@@ -75,63 +75,57 @@ const certificateSectionDetails = [
     category: "Faculty Development Programs (FDP)",
     id: "fdp",
     title: "Faculty Development Programs",
-    eyebrow: "01 / PROFESSIONAL DEVELOPMENT",
+    eyebrow: "06 / PROFESSIONAL DEVELOPMENT",
     description: "Faculty development programmes, refresher courses and academic training."
   },
   {
     category: "Workshops and Training",
     id: "workshops",
     title: "Workshops and Training",
-    eyebrow: "02 / SKILL DEVELOPMENT",
+    eyebrow: "07 / SKILL DEVELOPMENT",
     description: "Technical workshops, hands-on training and professional learning."
   },
   {
     category: "Conferences",
     id: "conferences",
     title: "Conferences",
-    eyebrow: "03 / ACADEMIC PARTICIPATION",
+    eyebrow: "08 / ACADEMIC PARTICIPATION",
     description: "Conference participation, presentations and scholarly events."
   },
-  {
-    category: "Research and Publications",
-    id: "research-recognition",
-    title: "Research and Publications",
-    eyebrow: "04 / RESEARCH",
-    description: "Research achievements and publication-related recognition."
-  },
+ 
   {
     category: "Professional Certifications",
     id: "certifications",
     title: "Professional Certifications",
-    eyebrow: "05 / CREDENTIALS",
+    eyebrow: "09 / CREDENTIALS",
     description: "Professional courses, technical certifications and credentials."
   },
   {
     category: "Awards and Recognition",
     id: "awards",
     title: "Awards and Recognition",
-    eyebrow: "06 / ACHIEVEMENTS",
+    eyebrow: "10 / ACHIEVEMENTS",
     description: "Awards, honours and professional recognition."
   },
   {
     category: "Journal Reviewer",
     id: "journal-reviewer",
     title: "Journal Reviewer",
-    eyebrow: "07 / PEER REVIEW",
+    eyebrow: "11 / PEER REVIEW",
     description: "Journal peer-review certificates and editorial recognition."
   },
   {
     category: "Conference Reviewer",
     id: "conference-reviewer",
     title: "Conference Reviewer",
-    eyebrow: "08 / PEER REVIEW",
+    eyebrow: "12 / PEER REVIEW",
     description: "Conference reviewing and technical programme committee recognition."
   },
   {
     category: "Other Recognition",
     id: "other-recognition",
     title: "Other Recognition",
-    eyebrow: "09 / PROFESSIONAL RECOGNITION",
+    eyebrow: "13 / PROFESSIONAL RECOGNITION",
     description: "Additional academic and professional achievements."
   }
 ];
@@ -620,7 +614,7 @@ export default function Portfolio() {
       <section id="publications" className="section">
         <SectionTitle
           eyebrow="04 / SCHOLARLY WORK"
-          title="Selected publications"
+          title="Research and Publications"
           text="Journal articles and peer-reviewed conference proceedings."
         />
 
