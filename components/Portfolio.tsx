@@ -476,11 +476,9 @@ export default function Portfolio() {
           <div className="side-line"></div>
 
           <span className="side-caption">
-            COMPUTER ENGINEERING
+           COMPUTER SCIENCE AND ENGINEERING
             <br />
-            ARTIFICIAL INTELLIGENCE
-            <br />
-            DATA SCIENCE
+            ARTIFICIAL INTELLIGENCE AND DATA SCIENCE
           </span>
         </div>
       </section>
@@ -535,10 +533,7 @@ export default function Portfolio() {
           <span>Ph.D. awarded</span>
         </div>
 
-        <small>
-          *Journal review counts shown in the supplied profile;
-          conference reviews are additional.
-        </small>
+    
       </section>
 
       {/* EDUCATION AND EXPERIENCE */}
