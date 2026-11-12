@@ -661,7 +661,7 @@ export default function Portfolio() {
 
       <section id="teaching" className="section teaching-section">
         <SectionTitle
-          eyebrow="06 / TEACHING EXPERIENCE"
+          eyebrow="05 / TEACHING EXPERIENCE"
           title="Subjects handled"
           text="Courses handled across computer science, artificial intelligence and data science."
         />
