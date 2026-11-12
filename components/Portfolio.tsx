@@ -136,7 +136,7 @@ const otherRecognitions = [
   "Held departmental coordination responsibilities for the Placement Committee, Cultural Committee, and Women Empowerment Club at SMVITM.",
   "Coordinated institutional-level technical and cultural events, along with documentation and application processes for NAAC, NBA, and Unnat Bharat Abhiyan (UBA) initiatives.",
   "Served as an Examination Moderator for semester examinations at MITE, Moodbidri."
-],;
+];
 
 function SectionTitle({
   eyebrow,
