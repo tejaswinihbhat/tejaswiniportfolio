@@ -826,7 +826,7 @@ export default function Portfolio() {
         className="section professional-links-section"
       >
         <SectionTitle
-          eyebrow="07 / PROFESSIONAL PRESENCE"
+          eyebrow="14 / PROFESSIONAL PRESENCE"
           title="Professional links"
           text="Access the researcher profiles, scholarly databases and professional contact channels associated with my academic work."
         />
@@ -872,7 +872,7 @@ export default function Portfolio() {
       <section id="contact" className="contact-section">
         <div>
           <span className="eyebrow gold-text">
-            08 / CONNECT
+            15 / CONNECT
           </span>
 
           <h2>
