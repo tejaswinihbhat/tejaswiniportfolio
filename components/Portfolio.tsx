@@ -10,7 +10,6 @@ import {
   GraduationCap,
   Mail,
   Menu,
-  Microscope,
   ShieldCheck,
   X,
   ExternalLink,
@@ -29,9 +28,7 @@ import {
   researchAreas,
   certifications,
   reviewerJournals,
-  reviewerConferences,
   teachingSubjects,
-  contributions,
   professionalLinks
 } from "@/lib/content";
 
@@ -138,6 +135,15 @@ const certificateSectionDetails = [
     description: "Additional academic and professional achievements."
   }
 ];
+
+// Point-wise academic and institutional contributions shown under Other Recognition.
+const otherRecognitions = [
+  "Question paper setter and external evaluator for Nitte University semester examinations.",
+  "Department coordinator for the Placement Committee, Cultural Committee and Women Empowerment Club at SMVITM.",
+  "Coordinator for institutional fests and NAAC, NBA and Unnat Bharat Abhiyan applications.",
+  "Moderator at MITE, Moodbidri."
+];
+
 function SectionTitle({
   eyebrow,
   title,
@@ -355,6 +361,7 @@ export default function Portfolio() {
     ["Research", "research"],
     ["Publications", "publications"],
     ["Achievements", "achievements"],
+    ["Teaching", "teaching"],
     ["FDP", "fdp"],
 ["Workshops", "workshops"],
 ["Conferences", "conferences"],
@@ -648,7 +655,7 @@ export default function Portfolio() {
        
       </section>
 
-      {/* ACHIEVEMENTS */}
+      {/* ACHIEVEMENTS / RECOGNITION & SERVICE */}
 
       <section
         id="achievements"
@@ -657,7 +664,7 @@ export default function Portfolio() {
         <SectionTitle
           eyebrow="05 / RECOGNITION & SERVICE"
           title="Academic contributions"
-          text="Peer review, faculty development, teaching and institutional service."
+          text="Peer-review, teaching and institutional contributions are presented in their respective sections."
         />
 
         <div className="achievement-grid">
@@ -665,76 +672,58 @@ export default function Portfolio() {
             <div className="card-icon">
               <Award />
             </div>
-
-            <h3>Journal reviewer</h3>
-
+            <h3>Peer-review contributions</h3>
             <p>
-              Peer-review contributions recorded in the
-              supplied profile.
+              Journal and conference peer-review activities, including
+              editorial and technical programme committee contributions.
             </p>
-
-            <div className="review-table">
-              {reviewerJournals.map((r) => (
-                <div key={r[0]}>
-                  <span>{r[0]}</span>
-                  <b>{r[1]}</b>
-                  <small>{r[2]} reviews</small>
-                </div>
-              ))}
-            </div>
-          </article>
-
-          <article className="achievement-card">
-            <div className="card-icon">
-              <Microscope />
-            </div>
-
-            <h3>Conference reviewer</h3>
-
-            <p>Selected international conferences.</p>
-
-            <ul className="compact-list">
-              {reviewerConferences.slice(0, 8).map((x) => (
-                <li key={x}>{x}</li>
-              ))}
-            </ul>
-
-            <small className="muted">
-              Additional conference review records can be added
-              through the admin dashboard in a future content update.
-            </small>
+            <a className="text-link" href="#journal-reviewer">
+              View journal reviewing <ArrowUpRight size={14} />
+            </a>
+            <a className="text-link" href="#conference-reviewer">
+              View conference reviewing <ArrowUpRight size={14} />
+            </a>
           </article>
 
           <article className="achievement-card">
             <div className="card-icon">
               <BookOpen />
             </div>
-
-            {/* TEACHING & ACADEMIC SERVICE */}
-
-<article className="achievement-card">
-  <div className="card-icon">
-    <BookOpen />
-  </div>
-
-  <h3>Academic & Institutional Service</h3>
-
-  <p>
-    Contributing to academic administration, student
-    development, institutional initiatives, and
-    academic evaluation.
-  </p>
-
-  <ul className="compact-list">
-    {contributions.slice(0, 4).map((x) => (
-      <li key={x}>{x}</li>
-    ))}
-  </ul>
-</article>
+            <h3>Academic & institutional service</h3>
+            <p>
+              Academic evaluation, departmental coordination and
+              institutional responsibilities are detailed under Other
+              Recognition.
+            </p>
+            <a className="text-link" href="#other-recognition">
+              View other recognition <ArrowUpRight size={14} />
+            </a>
+          </article>
         </div>
       </section>
 
-     {/* SEPARATE PROFESSIONAL RECOGNITION SECTIONS */}
+      {/* SEPARATE TEACHING EXPERIENCE SECTION */}
+
+      <section id="teaching" className="section teaching-section">
+        <SectionTitle
+          eyebrow="06 / TEACHING EXPERIENCE"
+          title="Subjects handled"
+          text="Courses handled across computer science, artificial intelligence and data science."
+        />
+
+        <div className="teaching-subject-grid">
+          {teachingSubjects.map((subject, index) => (
+            <article className="teaching-subject-card" key={`${subject}-${index}`}>
+              <span className="teaching-subject-number">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <h3>{subject}</h3>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* SEPARATE PROFESSIONAL RECOGNITION SECTIONS */}
 
 {certificateSectionDetails.map((section) => {
   const sectionCertificates = certs.filter(
@@ -754,6 +743,36 @@ export default function Portfolio() {
         title={section.title}
         text={section.description}
       />
+
+      {section.id === "journal-reviewer" && (
+        <div className="journal-review-summary">
+          {reviewerJournals.map((journal) => (
+            <article className="journal-review-item" key={journal[0]}>
+              <div className="journal-review-top">
+                <span className="journal-review-name">{journal[0]}</span>
+                <span className="journal-review-quartile">{journal[1]}</span>
+              </div>
+              <div className="journal-review-count">
+                <strong>{journal[2]}</strong>
+                <span>{journal[2] === 1 ? "review" : "reviews"}</span>
+              </div>
+            </article>
+          ))}
+        </div>
+      )}
+
+      {section.id === "other-recognition" && (
+        <div className="other-recognition-list">
+          {otherRecognitions.map((item, index) => (
+            <div className="other-recognition-item" key={index}>
+              <span className="recognition-number">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <p>{item}</p>
+            </div>
+          ))}
+        </div>
+      )}
 
       {sectionCertificates.length > 0 ? (
         <div className="certificate-grid">
@@ -1194,6 +1213,136 @@ export default function Portfolio() {
 
         <a href="#home">Back to top ↑</a>
       </footer>
+
+      <style jsx global>{`
+        .journal-review-summary {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 16px;
+          margin: 30px 0 36px;
+        }
+        .journal-review-item {
+          padding: 20px 22px;
+          background: #fff;
+          border: 1px solid rgba(16, 36, 58, 0.12);
+          border-radius: 14px;
+          transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .journal-review-item:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 10px 28px rgba(16, 36, 58, 0.08);
+        }
+        .journal-review-top {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          gap: 12px;
+        }
+        .journal-review-name {
+          color: #10243a;
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 1.5;
+        }
+        .journal-review-quartile {
+          flex-shrink: 0;
+          padding: 4px 9px;
+          border-radius: 5px;
+          background: #f4eee1;
+          color: #94743c;
+          font-size: 11px;
+          font-weight: 700;
+        }
+        .journal-review-count {
+          display: flex;
+          align-items: baseline;
+          gap: 7px;
+          margin-top: 18px;
+          color: #64748b;
+          font-size: 12px;
+        }
+        .journal-review-count strong {
+          color: #10243a;
+          font-family: Georgia, serif;
+          font-size: 27px;
+          font-weight: 600;
+        }
+        .teaching-subject-grid {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 16px;
+          margin-top: 30px;
+        }
+        .teaching-subject-card {
+          min-height: 130px;
+          padding: 22px;
+          border: 1px solid rgba(16, 36, 58, 0.12);
+          border-radius: 14px;
+          background: #fff;
+        }
+        .teaching-subject-number {
+          display: block;
+          margin-bottom: 16px;
+          color: #a88a52;
+          font-family: Georgia, serif;
+          font-size: 14px;
+          font-weight: 600;
+        }
+        .teaching-subject-card h3 {
+          margin: 0;
+          color: #10243a;
+          font-size: 16px;
+          line-height: 1.5;
+        }
+        .other-recognition-list {
+          display: flex;
+          flex-direction: column;
+          margin: 24px 0 32px;
+        }
+        .other-recognition-item {
+          display: flex;
+          align-items: flex-start;
+          gap: 18px;
+          padding: 19px 0;
+          border-bottom: 1px solid rgba(16, 36, 58, 0.12);
+        }
+        .other-recognition-item:first-child {
+          border-top: 1px solid rgba(16, 36, 58, 0.12);
+        }
+        .recognition-number {
+          flex-shrink: 0;
+          padding-top: 2px;
+          color: #a88a52;
+          font-family: Georgia, serif;
+          font-size: 15px;
+          font-weight: 600;
+        }
+        .other-recognition-item p {
+          margin: 0;
+          color: #34465a;
+          font-size: 15px;
+          line-height: 1.7;
+        }
+        @media (max-width: 900px) {
+          .journal-review-summary,
+          .teaching-subject-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+        }
+        @media (max-width: 550px) {
+          .journal-review-summary,
+          .teaching-subject-grid {
+            grid-template-columns: 1fr;
+          }
+          .journal-review-item,
+          .teaching-subject-card {
+            padding: 18px;
+          }
+          .other-recognition-item {
+            gap: 13px;
+          }
+        }
+      `}</style>
     </main>
   );
 }
