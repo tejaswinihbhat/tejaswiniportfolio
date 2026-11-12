@@ -596,15 +596,13 @@ export default function Portfolio() {
           </span>
 
           <h2>
-            Questions that
+            Exploring ideas. 
             <br />
-            <em>move knowledge.</em>
+            <em>Engineering intelligence.</em>
           </h2>
 
           <p>
-            Interdisciplinary research at the intersection of
-            intelligent systems, knowledge representation and
-            applied computing.
+           Research exploring the convergence of artificial intelligence, knowledge engineering, semantic technologies, and applied computing to develop intelligent, knowledge-driven solutions for real-world challenges.
           </p>
         </div>
 
