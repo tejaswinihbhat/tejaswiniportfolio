@@ -754,7 +754,7 @@ export default function Portfolio() {
               </div>
               <div className="journal-review-count">
                 <strong>{journal[2]}</strong>
-                <span>{journal[2] === 1 ? "review" : "reviews"}</span>
+               <span>{journal[2] === "1" ? "review" : "reviews"}</span>
               </div>
             </article>
           ))}
