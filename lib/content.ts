@@ -14,15 +14,76 @@ export const profile = {
 };
 
 
+
 export const professionalLinks = [
-  { label: "Email", value: "tejaswini.smvitm@gmail.com", href: "mailto:tejaswini.smvitm@gmail.com", detail: "Academic and professional enquiries" },
-  { label: "ORCID", value: "0000-0003-0708-318X", href: "https://orcid.org/0000-0003-0708-318X", detail: "Researcher identifier and publication record" },
-  { label: "LinkedIn", value: "Professional profile", href: "https://www.linkedin.com/in/tejaswinihbhat/", detail: "Professional networking and experience" },
-  { label: "Scopus Author ID", value: "57202363395", href: "http://www.scopus.com/authid/detail.url?authorId=57202363395", detail: "Scopus author profile and indexed publications" },
-  { label: "Web of Science ResearcherID", value: "AER-2585-2022", href: "http://www.researcherid.com/rid/AER-2585-2022", detail: "Web of Science researcher profile" },
-  { label: "Google Scholar", value: "Google Scholar profile", href: "http://scholar.google.co.in/citations?user=B_S-3gcAAAAJ", detail: "Scholarly publications and citation profile" },
-  { label: "DBLP", value: "DBLP author profile", href: "https://dblp.org/pid/387/5807", detail: "Computer science bibliography profile" }
+  {
+    label: "Email",
+    value: "tejaswini.smvitm@gmail.com",
+    href: "mailto:tejaswini.smvitm@gmail.com",
+    detail: "Academic and professional enquiries"
+  },
+  {
+    label: "ORCID",
+    value: "0000-0003-0708-318X",
+    href: "https://orcid.org/0000-0003-0708-318X",
+    detail: "Researcher identifier and publication record"
+  },
+  {
+    label: "Vidwan Profile",
+    value: "498313",
+    href: "https://vidwan.inflibnet.ac.in/profile/498313",
+    detail: "INFLIBNET Researcher and Faculty Profile"
+  },
+  {
+    label: "LinkedIn",
+    value: "Professional profile",
+    href: "https://www.linkedin.com/in/tejaswinihbhat/",
+    detail: "Professional networking and experience"
+  },
+  {
+    label: "Scopus Author ID",
+    value: "57202363395",
+    href: "https://www.scopus.com/authid/detail.uri?authorId=57202363395",
+    detail: "Scopus author profile and indexed publications"
+  },
+  {
+    label: "Web of Science ResearcherID",
+    value: "AER-2585-2022",
+    href: "https://www.researcherid.com/rid/AER-2585-2022",
+    detail: "Web of Science researcher profile"
+  },
+  {
+    label: "Google Scholar",
+    value: "B_S-3gcAAAAJ",
+    href: "https://scholar.google.co.in/citations?user=B_S-3gcAAAAJ",
+    detail: "Scholarly publications and citation profile"
+  },
+  {
+    label: "DBLP",
+    value: "387/5807",
+    href: "https://dblp.org/pid/387/5807.html",
+    detail: "Computer science bibliography profile"
+  },
+  {
+    label: "Semantic Scholar",
+    value: "41079240",
+    href: "https://www.semanticscholar.org/author/H.-Tejaswini/41079240",
+    detail: "Research publications and citation profile"
+  },
+  {
+    label: "OpenReview",
+    value: "~Tejaswini_H1",
+    href: "https://openreview.net/profile?id=~Tejaswini_H1",
+    detail: "Academic peer-review and conference profile"
+  },
+  {
+    label: "SciProfiles",
+    value: "tejaswinih",
+    href: "https://sciprofiles.com/profile/tejaswinih",
+    detail: "Scientific researcher profile"
+  }
 ];
+
 
 export const education = [
   { degree: "Ph.D. in Computer Engineering", institution: "Manipal Academy of Higher Education (MAHE), Manipal", year: "2026", detail: "Research: Ontology Based Fish Classification and Recommender Systems for Aquaculture in Estuaries." },
