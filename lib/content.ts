@@ -81,7 +81,13 @@ export const professionalLinks = [
     value: "tejaswinih",
     href: "https://sciprofiles.com/profile/tejaswinih",
     detail: "Scientific researcher profile"
-  }
+  },
+  {
+  label: "ResearchGate",
+  value: "Tejaswini H",
+  href: "https://www.researchgate.net/profile/Tejaswini-H",
+  detail: "Research publications, academic networking and collaboration"
+}
 ];
 
 
