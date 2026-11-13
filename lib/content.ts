@@ -107,7 +107,16 @@ export const publications = [
   { type: "Journal", year: "2024", title: "Automatic Estuarine Fish Species Classification System Based on Deep Learning Techniques", authors: "H. Tejaswini, M. M. Manohara Pai and R. M. Pai", venue: "IEEE Access, vol. 12, pp. 140412–140438.", doi: "https://doi.org/10.1109/ACCESS.2024.3468438", note: "Q1" },
   { type: "Conference", year: "2021", title: "Knowledge graph for aquaculture recommendation system", authors: "Tejaswini H., Manohara Pai M. M. and Radhika M. Pai", venue: "2021 IEEE Mysore Sub Section International Conference (MysuruCon), pp. 366–371.", doi: "https://doi.org/10.1109/MysuruCon52639.2021.9641685", note: "Scopus indexed" },
   { type: "Conference", year: "2020", title: "An ontology-based decision support system for nutrition deficiency", authors: "Tejaswini H., M. M. Manohara Pai, Radhika M. Pai, Girija Attigeri and Revathi P. Shenoy", venue: "2020 IEEE International Conference on Distributed Computing, VLSI, Electrical Circuits and Robotics (DISCOVER), pp. 267–272.", doi: "https://doi.org/10.1109/DISCOVER50404.2020.9278069", note: "Scopus indexed" },
-  { type: "Conference", year: "2017", title: "Cascade ciphering technique for confidential, authenticated and integrity preserved transmission of images over a network", authors: "Tejaswini H. and Radhakrishna Dodmane", venue: "2017 International Conference on Smart Technologies for Smart Nation (SmartTechCon), pp. 1452–1455.", doi: "https://doi.org/10.1109/SmartTechCon.2017.8358605", note: "Scopus indexed" }
+  { type: "Conference", year: "2017", title: "Cascade ciphering technique for confidential, authenticated and integrity preserved transmission of images over a network", authors: "Tejaswini H. and Radhakrishna Dodmane", venue: "2017 International Conference on Smart Technologies for Smart Nation (SmartTechCon), pp. 1452–1455.", doi: "https://doi.org/10.1109/SmartTechCon.2017.8358605", note: "Scopus indexed" },
+{
+  type: "Conference",
+  year: "2026",
+  title: "A Lightweight Point-Based Neural Network for 3D Shape Classification with Robustness Analysis Under Noise and Sparsity",
+  authors: "Apoorva Vasishtha, Abhijeet Kumar, Pushpendra Kumar Sikarwal, Abhishek Vyas, Tejaswini H. and Vidya Sagar S. D.",
+  venue: "2026 7th International Conference on Computational Vision and Bio Inspired Computing (ICCVBIC).",
+  doi: "https://doi.org/10.1109/ICCVBIC71195.2026.11689467",
+  note: "IEEE Xplore"
+}
 ];
 
 export const researchAreas = ["Deep Learning", "Computer Vision", "Image Classification", "Semantic Web", "Ontology Engineering", "Knowledge Graphs", "Recommender Systems", "Aquaculture Informatics"];
